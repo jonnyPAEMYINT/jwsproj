@@ -28,6 +28,7 @@ img {
 ul, ol {
   margin: 10px 0;
   margin-left: 14px;
+  margin-bottom: 20px;
 }
 li {
   margin-bottom: 10px;
@@ -197,7 +198,14 @@ section {
   color: #fff;
 }
 .section-contactinfo a {
+  color: #fff;
+  text-decoration: none;
+}
+.section-contactinfo a:hover {
+  /* color: #005599; */
   color: #fedc97;
+  text-decoration: underline; 
+  text-underline-offset: 5px;
 }
 .content-container {
   /* max-width: 1440px;
