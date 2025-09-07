@@ -1,0 +1,247 @@
+/* Reset and basics */
+:root {
+    --base-font-size: 16px;
+    --scale-factor: 1.2;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+  font-family: Open Sans, sans-serif;
+  scroll-behavior: smooth;
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+ul, ol {
+  margin: 10px 0;
+  margin-left: 14px;
+}
+li {
+  margin-bottom: 10px;
+}
+p {
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+/* Flexbox utility classes */
+.cols {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.col-left, .col-right {
+  flex: 1;
+}
+.col-left {
+  text-align: left;
+}
+.col-right {
+  text-align: right;
+}
+.col-50 {
+  flex: 0 0 calc(50% - 10px);
+}
+.fade-on-scroll {
+  opacity: 1; /* visible by default */
+  transition: opacity 0.5s ease-in-out; /* smooth fade */
+}
+.fade-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.glass-element {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); /* Adjust blur strength as needed */
+  -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+}
+.main-content {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+  /* max-width: 1440px;
+  margin: 0 auto; */
+}
+.page {
+  padding: 60px 20px;
+}
+/* Header styles */
+#header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  /* background: rgba(255, 255, 255, 0.9); */
+  /* box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); */
+  z-index: 1000;
+}
+.header-content {
+  padding: 10px 20px;
+}
+.header-content .logo {
+  max-width: 120px;
+}
+/* Footer styles */
+#footer {
+  position: relative;
+  padding: 14px 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 12px;
+}
+/* Section styles */
+section {
+  scroll-snap-align: start;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+}
+.section-hero {
+  background-image: url('../images/bg1.png');
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+.section-hero .home-logo img {
+  width: 400px;
+}
+/* Section 1 footer (company + copyright) */
+.section-hero-footer {
+  display: flex;
+  justify-content: space-between; /* company left, copyright right */
+  align-items: center;
+  width: 100%;
+  padding: 0 40px; /* horizontal spacing from edges */
+  position: absolute;
+  bottom: 40px; /* distance from bottom of viewport */
+}
+.section-hero-footer .company,
+.section-hero-footer .company-copyright {
+  font-size: 15px; /* match both texts */
+  color: white;
+  transition: opacity 0.5s ease-in-out; /* smooth fade */
+}
+.section-hero-footer .company {
+  margin-bottom: 0; /* base vertical spacing */
+}
+.section-2 {
+  background-image: url('../images/bg2.png');
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.section-2 .section-wrapper {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-2 .company-founder {
+  align-self: flex-end;
+  margin-top: 20px;
+}
+.services-list {
+  list-style-type: none;
+  margin-left: 0;
+}
+.services-list .service-number {
+  font-weight: bold;
+  margin-right: 10px;
+}
+.section-7 {
+  background-color: #fbd1a2;
+}
+.section-7 .cols {
+  gap: 0;
+}
+.section-7 .cols .col-50 {
+  flex: 1 1 50%;
+}
+.section-7 .cols .text {
+  padding: 0 20px;
+}
+.section-7 .cols .text:first-child {
+  padding-left: 0;
+}
+.section-organization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.section-contactinfo {
+  background-color: #0077b6;
+  background-image: url('../images/bg2.png');
+  color: #fff;
+}
+.section-contactinfo a {
+  color: #fedc97;
+}
+.content-container {
+  /* max-width: 1440px;
+  margin: 0 auto; */
+  overflow: visible; /* must be visible for sticky to work */
+  position: relative; /* safe to keep for layout */
+}
+.page .text {
+  padding-right: 20px;
+}
+@media screen and (max-width: 768px) {
+  .col-left, .col-right {
+    text-align: left;
+  }
+  /* Only allow full width for non-header containers */
+  .page .col-left,
+  .page .col-right,
+  .col-50 {
+    flex: 1 1 100%;
+  }
+  #header .col-left,
+  #header .col-right {
+    flex: 0 0 auto; /* stay side by side */
+    width: auto;
+  }
+  #header .logo img {
+    max-width: 100px;
+    height: auto;
+  }
+  #header .company-top-right {
+    font-size: 14px;
+  }
+  /* Responsive spacing for section-hero-footer */
+  .section-hero-footer {
+    flex-direction: column; /* stack company + copyright vertically */
+    align-items: center;
+    gap: 8px; /* vertical spacing between company and copyright */
+    bottom: 30px; /* adjust distance from bottom */
+    padding: 0 20px; /* horizontal padding */
+  }
+  .section-hero-footer .company,
+  .section-hero-footer .company-copyright {
+    font-size: 12px; /* slightly smaller for tablets */
+    text-align: center;
+  }
+
+}
