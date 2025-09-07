@@ -21,62 +21,6 @@ ready(function() {
   dateElement.textContent = formattedDate;
 });
 
-/**
-document.addEventListener("DOMContentLoaded", () => {
-  const sectionHero = document.querySelector(".section-hero");
-  const fadeEls = document.querySelectorAll(".fade-on-scroll");
-
-  const section2 = document.querySelector(".section-2");
-  const appearEls = document.querySelectorAll(".appear-on-scroll");
-
-  function handleScroll() {
-    const viewportHeight = window.innerHeight;
-
-    // --- Section 1: Fade out ---
-    if (sectionHero) {
-      const rect = sectionHero.getBoundingClientRect();
-      let progress = 0;
-
-      if (rect.top < 0) {
-        progress = Math.min(-rect.top / (rect.height - viewportHeight), 1);
-      } else {
-        progress = 0;
-      }
-
-      const fadeSpeed = 0.7; // faster fade
-      const opacity = Math.max(1 - progress * fadeSpeed, 0);
-      fadeEls.forEach(el => {
-        el.style.opacity = opacity;
-      });
-    }
-
-    // --- Section 2: Fade in ---
-    if (section2) {
-      const rect2 = section2.getBoundingClientRect();
-      let appearProgress = 0;
-
-      if (rect2.top < viewportHeight) {
-        appearProgress = Math.min((viewportHeight - rect2.top) / viewportHeight, 1);
-      }
-
-      const appearSpeed = 1.2; // increase this for faster appear
-      const opacity = Math.min(appearProgress * appearSpeed, 1);
-
-      appearEls.forEach(el => {
-        el.style.opacity = opacity;
-        el.style.transform = `translateY(${20 * (1 - opacity)}px)`; // slight slide up
-      });
-    }
-  }
-
-  window.addEventListener("scroll", handleScroll);
-  window.addEventListener("resize", handleScroll);
-  handleScroll(); // trigger on load
-});
-
-**/
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const sectionHero = document.querySelector(".section-hero");
   const fadeEls = document.querySelectorAll(".fade-on-scroll");
